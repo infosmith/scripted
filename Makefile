@@ -22,6 +22,14 @@ bumpversion:
 	bumpversion $$semvar
 
 
+clean:
+	# Remove project artifacts
+	rm -Rf .pytest_cache     # pytest
+	rm -Rf build             # pypi
+	rm -Rf dist              # pypi
+	rm -Rf scripted.egg-info # pypi
+
+
 install-local:
 	# Install package in current environment.
 	pip install .
