@@ -2,10 +2,10 @@
 from scripted.core.helpers import Helpers
 
 
-class BaseClass(object):
 __all__ = ['Controller', 'View']
 
 
+class Base(object):
     """Base class of all Scripted classes."""
 
     fn = Helpers()
@@ -14,6 +14,6 @@ __all__ = ['Controller', 'View']
         return self.__class__.__name__
 
 
-class ControllerBaseClass(BaseClass):
+class Controller(Base):
     """Base class of all user defined controllers."""
     pass

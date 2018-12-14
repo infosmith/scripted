@@ -4,18 +4,19 @@ import functools
 import sys
 
 from scripted.core.bases import (
-    BaseClass,
-    ControllerBaseClass
+    Base,
+    Controller,
+    View
 )
 
 
-class Script(BaseClass):
 __all__ = ['Script']
 
 
+class Script(Base):
     """Decorators for creating MVC style command line tools."""
 
-    controller_base_class = ControllerBaseClass
+    CONTROLLER_SUPERCLASS = Controller
 
     @property
     def Controller(self):
@@ -25,8 +26,8 @@ __all__ = ['Script']
         Terminal instance decorators and inheritance used to create
         argparser and add utility functions to Controller subclasses.
         """
-        self.fn.log("Inherited from ControllerBaseClass.")
-        return self.controller_base_class
+        self.fn.log("Inherited from Controller.")
+        return self.CONTROLLER_SUPERCLASS
 
 
     def __init__(self):
