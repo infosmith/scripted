@@ -17,6 +17,7 @@ class Script(Base):
     """Decorators for creating MVC style command line tools."""
 
     CONTROLLER_SUPERCLASS = Controller
+    VIEW_SUPERCLASS = View
 
     @property
     def Controller(self):
@@ -28,6 +29,17 @@ class Script(Base):
         """
         self.fn.log("Inherited from Controller.")
         return self.CONTROLLER_SUPERCLASS
+
+    @property
+    def View(self):
+        """Superclass of user defined View classes.
+
+        Currently stubbing superclass of user defined views.
+        Terminal instance decorators and inheritance used to create
+        argparser and add utility functions to View subclasses.
+        """
+        self.fn.log("Inherited from View.")
+        return self.VIEW_SUPERCLASS
 
 
     def __init__(self):

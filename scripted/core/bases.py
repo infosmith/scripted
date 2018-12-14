@@ -1,5 +1,6 @@
 """Entry point of framework."""
 from abc import ABC
+
 from scripted.core.helpers import Helpers
 
 
@@ -17,4 +18,9 @@ class Base(ABC):
 
 class Controller(Base):
     """Base class of all user defined controllers."""
+    pass
+
+
+class View(Base):
+    """Base class of all user defined views."""
     pass
