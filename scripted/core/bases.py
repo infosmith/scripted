@@ -3,7 +3,6 @@ from abc import ABC
 
 from scripted.core.helpers import Helpers
 
-
 __all__ = ['Controller', 'View']
 
 

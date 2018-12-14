@@ -9,7 +9,6 @@ from scripted.core.bases import (
     View
 )
 
-
 __all__ = ['Script']
 
 
@@ -41,7 +40,6 @@ class Script(Base):
         self.fn.log("Inherited from View.")
         return self.VIEW_SUPERCLASS
 
-
     def __init__(self):
         """Initialize main parser and sub-parser factory."""
         self.parsers = {'main': argparse.ArgumentParser()}
@@ -50,7 +48,6 @@ class Script(Base):
         self.argv = None
         self.decorated_class = None
         self.fn.log(f"Initialized {self} decorator.")
-
 
     def __route(self, command):
         """Route commands to Controller methods."""
@@ -61,7 +58,6 @@ class Script(Base):
             getattr(self.decorated_class, command)()
 
         self.fn.log(f"Called {command} on {self.decorated_class}")
-
 
     def __subparser(self, method):
         """Get or create subparsers created per Controller method."""
@@ -79,14 +75,12 @@ class Script(Base):
         self.parsers[method.__name__] = subparser
         return self.parsers[method.__name__]
 
-
     def add_controller(self, cls):
         """Decorating class builds its parsers."""
 
         self.parsers['main'].description = cls.__doc__
         self.decorated_class = cls()
         self.fn.log(f"Wrapped {self.decorated_class}")
-
 
     def argument(self, method, *args, **kwargs):
         """Add argparse arguments to decorated Controller methods"""
@@ -98,7 +92,6 @@ class Script(Base):
             return method
 
         return method_wrapper
-
 
     def execute(self):
         """Parse arguments and invoke Controller method."""
@@ -113,7 +106,6 @@ class Script(Base):
         self.args = self.parsers['main'].parse_args()
         self.decorated_class.args = self.args
         self.__route(sys.argv[1])
-
 
     def option(self, klass, *args, **kwargs):
         """Add argparse arguments to decorated Controller methods"""
