@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name="scripted",
-    version="0.0.0",
+    version="0.1.0",
     description="MVC framework for CLI applications.",
     url="http://github.com/infosmith/scripted",
     author="infosmith",
