@@ -10,6 +10,9 @@ from scripted.core.bases import (
 
 
 class Script(BaseClass):
+__all__ = ['Script']
+
+
     """Decorators for creating MVC style command line tools."""
 
     controller_base_class = ControllerBaseClass

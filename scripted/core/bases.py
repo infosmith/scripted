@@ -3,6 +3,9 @@ from scripted.core.helpers import Helpers
 
 
 class BaseClass(object):
+__all__ = ['Controller', 'View']
+
+
     """Base class of all Scripted classes."""
 
     fn = Helpers()
